@@ -15,7 +15,7 @@ typedef struct CANDIDAT candidat;
 typedef candidat* ListC;
 
 ListC candidats;
-
+int nombre = 0;
 candidat init_Candidat()
 {
 	candidat c1;
@@ -35,6 +35,7 @@ ListC init_ListC(int taille){
 	return L ;
 }
 
+
 int main(int argc, char **argv)
 {
 	// partie lecture fichier
@@ -48,8 +49,6 @@ int main(int argc, char **argv)
 	if (Fichier != NULL)
     {
         // On peut lire et écrire dans le fichier
-		int nombre = 0;
-		double tmp = 0;
 		candidat c;
 		fscanf(Fichier,"%d",&nombre);
 		printf("Nombre candidats : %d \n",nombre);
