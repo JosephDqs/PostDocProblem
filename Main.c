@@ -16,7 +16,6 @@ typedef candidat* ListC;
 
 ListC candidats;
 
-
 candidat init_Candidat()
 {
 	candidat c1;
@@ -38,6 +37,7 @@ ListC init_ListC(int taille){
 
 int main(int argc, char **argv)
 {
+	// partie lecture fichier
 	if(argc != 2)
 	{
 		printf("numbre of arguments is not right : %d \n",argc);
@@ -69,5 +69,10 @@ int main(int argc, char **argv)
         printf("Impossible d'ouvrir le fichier %s \n",argv[1]);
         return(-1);
     }
+    ////////////////////
+    // Shuffle des candidats ( ordre aléatoire)
+    
+    
+    free(candidats);
 	return 0;
 }
