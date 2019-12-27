@@ -6,14 +6,35 @@
 #include <math.h>
 
 struct CANDIDAT{
-	char* Nom;
+	char Nom[32];
 	int Note;
-}
+};
 
 typedef struct CANDIDAT candidat;
-typedef candidat* ListC  ;
+
+typedef candidat* ListC;
+
 ListC candidats;
 
+
+candidat init_Candidat()
+{
+	candidat c1;
+	strcpy(c1.Nom,"default");
+	c1.Note = 0;
+	return c1;
+}
+
+ListC init_ListC(int taille){
+	ListC L;
+	int i = 0;
+	L = malloc(taille * sizeof(candidat));
+	for(i=0;i<taille;i++)
+	{
+		L[i] = init_Candidat();
+	}
+	return L ;
+}
 
 int main(int argc, char **argv)
 {
@@ -29,15 +50,18 @@ int main(int argc, char **argv)
         // On peut lire et écrire dans le fichier
 		int nombre = 0;
 		double tmp = 0;
+		candidat c;
 		fscanf(Fichier,"%d",&nombre);
 		printf("Nombre candidats : %d \n",nombre);
-		candidats = malloc(nombre * sizeof(candidat));
+		candidats = init_ListC(nombre);
 		for(int i = 0;i<nombre;i++)
 		{
-			fscanf(Fichier,"%s %d",&candidats[i].Nom,&candidats[i].Note);
+			c = init_Candidat();
+			fscanf(Fichier,"%s %d",&c.Nom,&c.Note);
+			candidats[i] = c;
 			printf("candidats[%d] : %s note : %d \n",i,candidats[i].Nom, candidats[i].Note);
 		}
-			fclose(f);
+			fclose(Fichier);
 	}
     else
     {
