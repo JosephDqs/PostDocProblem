@@ -16,6 +16,8 @@ typedef candidat* ListC;
 
 ListC candidats;
 int nombre = 0;
+int top = 0;
+int second = 1;
 candidat init_Candidat()
 {
 	candidat c1;
@@ -35,6 +37,33 @@ ListC init_ListC(int taille){
 	return L ;
 }
 
+void top_half()
+{
+	int k,tmp;
+	//Premier et second init à 0 et 1 on test si ils sont dans le bon ordre
+	// on swap si non.
+	if(candidats[second].Note > candidats[top].Note)
+	{
+		tmp = second;
+		second = top;
+		top = tmp;
+	}
+	for(k=2;k<nombre/2;k++)
+	{
+		if (candidats[k].Note > candidats[second].Note)
+		{
+			if(candidats[k].Note > candidats[top].Note)
+			{
+				second = top;
+				top = k;
+			}
+			else
+			{
+				second = k;
+			}
+		}			
+	}
+}
 
 int main(int argc, char **argv)
 {
@@ -70,6 +99,13 @@ int main(int argc, char **argv)
     }
     ////////////////////
     // Shuffle des candidats ( ordre aléatoire)
+   // SI LE TEMPS A AJOUTER MAIS COMPLIQUER POUR RIEN
+    ////////////////////
+	top_half();
+	printf("le candidats d'après la stratégie 1 : premier de la première moitié : %s avec un score de %d \n",&candidats[top].Nom,candidats[top].Note);
+    
+    printf("le candidats d'après la stratégie 2 : deuxieme de la première moitié : %s avec un score de %d \n",&candidats[second].Nom,candidats[second].Note);
+
     
     
     free(candidats);
