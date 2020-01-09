@@ -4,6 +4,7 @@ Implémentation de la stratégie optimale du choix du meilleurs deuxième candid
 ## Manuel
 fichier sous la forme
 1. Nbre_de_candidats
+
 X. candidat_X Note_X
 
 ## Compilation 
