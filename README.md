@@ -4,8 +4,9 @@ Implémentation de la stratégie optimale du choix du meilleurs deuxième candid
 ## Manuel
 fichier sous la forme
 1. Nbre_de_candidats
-
-X. candidat_X Note_X
+2. candidat_2 Note_2
+3. candidat_2 Note_2
+4. etc...
 
 ## Compilation 
 * make : pour compiler
