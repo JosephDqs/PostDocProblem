@@ -18,6 +18,7 @@ ListC candidats;
 int nombre = 0;
 int top = 0;
 int second = 1;
+int strat3 = -1;
 candidat init_Candidat()
 {
 	candidat c1;
@@ -105,8 +106,21 @@ int main(int argc, char **argv)
 	printf("le candidats d'après la stratégie 1 : premier de la première moitié : %s avec un score de %d \n",&candidats[top].Nom,candidats[top].Note);
     
     printf("le candidats d'après la stratégie 2 : deuxieme de la première moitié : %s avec un score de %d \n",&candidats[second].Nom,candidats[second].Note);
+	
+	int k = nombre/2;
+	while(k<nombre)
+	{
+		if(candidats[k].Note > candidats[top].Note)
+		{
+			strat3 = k;
+			break;
+		}
+	}
+	if(k>=nombre)
+		printf("la stratégie 3 a échouée, pas de meilleur candidat dans la deuxieme partie \n");
+    else
+		printf("le candidats d'après la stratégie 3 : premier meilleur candidat vis a vis de la première moitié : %s avec un score de %d \n",&candidats[strat3].Nom,candidats[strat3].Note);
 
-    
     
     free(candidats);
 	return 0;
