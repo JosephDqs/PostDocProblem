@@ -108,18 +108,27 @@ int main(int argc, char **argv)
     printf("le candidats d'après la stratégie 2 : deuxieme de la première moitié : %s avec un score de %d \n",&candidats[second].Nom,candidats[second].Note);
 	
 	int k = nombre/2;
+	int ZEBEST = top;
 	while(k<nombre)
 	{
-		if(candidats[k].Note > candidats[top].Note)
+		if(candidats[k].Note > candidats[second].Note)
 		{
-			strat3 = k;
-			break;
+				if(candidats[k].Note < candidats[ZEBEST].Note)
+				{
+					strat3 = k;
+					break;
+				}
+				else
+				{
+					ZEBEST = k;
+				}
 		}
+		k++;
 	}
 	if(k>=nombre)
 		printf("la stratégie 3 a échouée, pas de meilleur candidat dans la deuxieme partie \n");
     else
-		printf("le candidats d'après la stratégie 3 : premier meilleur candidat vis a vis de la première moitié : %s avec un score de %d \n",&candidats[strat3].Nom,candidats[strat3].Note);
+		printf("le candidat d'après la stratégie 3 : premier 2ieme candidat vis a vis de ses prédécesseurs: %s avec un score de %d \n",&candidats[strat3].Nom,candidats[strat3].Note);
 
     
     free(candidats);
