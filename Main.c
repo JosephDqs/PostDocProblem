@@ -103,9 +103,9 @@ int main(int argc, char **argv)
    // SI LE TEMPS A AJOUTER MAIS COMPLIQUER POUR RIEN
     ////////////////////
 	top_half();
-	printf("le candidats d'après la stratégie 1 : premier de la première moitié : %s avec un score de %d \n",&candidats[top].Nom,candidats[top].Note);
+	printf("le candidats d'après la stratégie F : premier de la première moitié : %s avec un score de %d \n",&candidats[top].Nom,candidats[top].Note);
     
-    printf("le candidats d'après la stratégie 2 : deuxieme de la première moitié : %s avec un score de %d \n",&candidats[second].Nom,candidats[second].Note);
+    printf("le candidats d'après la stratégie G : deuxieme de la première moitié : %s avec un score de %d \n",&candidats[second].Nom,candidats[second].Note);
 	
 	int k = nombre/2;
 	int ZEBEST = top;
@@ -128,9 +128,9 @@ int main(int argc, char **argv)
 		k++;
 	}
 	if(k>=nombre)
-		printf("la stratégie 3 a échouée, pas de meilleur candidat dans la deuxieme partie \n");
+		printf("la stratégie V a échouée, pas de meilleur candidat dans la deuxieme partie \n");
     else
-		printf("le candidat d'après la stratégie 3 : premier 2ieme candidat vis a vis de ses prédécesseurs: %s avec un score de %d \n",&candidats[strat3].Nom,candidats[strat3].Note);
+		printf("le candidat d'après la stratégie V : premier 2ieme candidat vis a vis de ses prédécesseurs: %s avec un score de %d \n",&candidats[strat3].Nom,candidats[strat3].Note);
 
     
     free(candidats);
