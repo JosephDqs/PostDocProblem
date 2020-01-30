@@ -49,7 +49,7 @@ void top_half()
 		second = top;
 		top = tmp;
 	}
-	for(k=2;k<nombre/2;k++)
+	for(k=2;k<(nombre-1)/2;k++)
 	{
 		if (candidats[k].Note > candidats[second].Note)
 		{
@@ -120,7 +120,9 @@ int main(int argc, char **argv)
 				}
 				else
 				{
+					second = ZEBEST;
 					ZEBEST = k;
+					
 				}
 		}
 		k++;
